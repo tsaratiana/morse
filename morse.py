@@ -5,9 +5,9 @@ Created on Sun Oct 24 18:04:14 2020
 @author: Tsara
 """
 
-import tkinter as tk
 import time
 import sys
+
 
 # Dictionaries
 
@@ -24,7 +24,7 @@ morse_dict = { 'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.',
               '&':'.-...', '$':'...-..-', '"':'.-..-.', 
               
               '0':'-----', '1':'.----', '2':'..---', '3':'...--', '4':'....-', '5':'.....',
-              '6':'-....', '7':'--...', '8':'---..', '9':'----.', 
+              '6':'-....', '7':'--...', '8':'---..', '9':'----.'
                }
 
 morse_code = {'wait':'.-...', 'understood':'...-.', 'end':'...-.-', 'error':'........', 'starting signal':'-.-.-' }
@@ -35,24 +35,18 @@ morse_dict_words = {'a':'allo', 'b':'bonaparte', 'c':'coca cola', 'd':'dos dane'
               'v':'vegetation', 'w':'wagon post', 'x':'xtrocadero', 'y':'yoshimoto', 'z':'zorro est la'
               }
 
-morse_dict_alpha = { 'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 'g':'--.', 
-              'h':'....', 'i':'..', 'j':'.---', 'k':'-.-', 'l':'.-..', 'm':'--', 'n':'-.', 
-              'o':'---', 'p':'.--.', 'q':'--.-', 'r':'.-.', 's':'...', 't':'-', 'u':'..-', 
-              'v':'...-', 'w':'.--', 'x':'-..-', 'y':'-.--', 'z':'--..'
-              }
-
 # Definitions
 
 def decoration():
     print("\n**********************************************************")
     print("\tWelcome to my morse code decrytor/encryptor!")
-    print("\t(Supports English and most latin languages")
+    print("\t(Supports English and most latin languages)")
     print("**********************************************************\n")
     
     print('Note: "ï" and "œ" cannot be encrypted or decrypted.\n\n')
     
 def put_message():
-    print(list(morse_code.keys())[list(morse_code.values()).index('-.-.-')].capitalize(),"...")
+    print(list(morse_code.keys())[list(morse_code.values()).index('-.-.-')].capitalize(),"...\n")
     message = input("*Enter your message: ")
     return(message) 
     
@@ -74,9 +68,10 @@ def encrypt(message):
     
     
 def decrypt(message):
+    print("Note: To separate words, please put a double space.")
     print(list(morse_code.keys())[list(morse_code.values()).index('...-.')].capitalize())
     print(list(morse_code.keys())[list(morse_code.values()).index('.-...')].capitalize(),"...")
-    
+
     output_dec = '' # empty output
     text = ''
     message += ' ' # to decrypt the last letter/symbol
@@ -94,7 +89,7 @@ def decrypt(message):
             else:
                 output_dec += list(morse_dict.keys())[list(morse_dict.values()).index(text)]
                 text = '' # reinitialisation to decrypt the next letter/symbol
-    
+                
     return(output_dec)
     
 def tab_AW():
@@ -108,10 +103,6 @@ def tab_AW():
     for key, value in morse_dict_words.items():
         maxLength = 0
         maxLength = max(len(value), maxLength)
-    
-    for key, value in morse_dict_alpha.items(): # a voir
-        maxLength2 = 0
-        maxLength2 = max(len(value), maxLength2)
         
     for key, value in morse_dict_words.items():
         print("\t\t|\t",key.capitalize().ljust(maxLength),"\t|\t",value.capitalize().ljust(maxLength),"\t|")
@@ -178,17 +169,8 @@ def main():
             print('\n',morse_code.get('error'),"/",list(morse_code.keys())[list(morse_code.values()).index('........')].capitalize(),
                   ': Please type "Y" or "N" (lower or upper case)')
             break
-            
-        
-def test(): # a voir
-    a=dict()
-    for key2, value2 in morse_dict_alpha.items():
-        a=value2
-    a=(morse_dict_alpha.get('a'),morse_dict_alpha.get('b'),morse_dict_alpha.get('c'))   
-        
-    print(a)
 
-
+        
 # main
     
 if __name__ == '__main__':
