@@ -97,9 +97,10 @@ def decrypt(message):
                 
     return(output_dec)
     
+    
 def tab_AW():
     print("\n\n********************************************************************")
-    print("\t\t\tTo go further...")
+    print("\t\t\t  To go further...")
     print("********************************************************************\n")
     print('To learn morse code, it is easier to use associated words. "a", "e", "i" are "." and "o" is "-".')
     print('Note: If two vowels follow each other, we code only the second vowel, except for the word "Union" (and the "u" is "."). The letter U will be "..-"')
@@ -138,6 +139,12 @@ def ex():
         print('\nTry to decrypt "-... -.-- ."!')
         time.sleep(10)
         print('The answer was: Bye')
+        
+        print("\n********************************")
+        print("\t", morse_code.get('end'),"/",list(morse_code.keys())[list(morse_code.values()).index('...-.-')].capitalize())
+        print("\tThank you!")
+        print("*********************************\n")
+        
     elif answer == 'N':
         print("\n********************************")
         print("\t", morse_code.get('end'),"/",list(morse_code.keys())[list(morse_code.values()).index('...-.-')].capitalize())
