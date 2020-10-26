@@ -11,9 +11,9 @@ import sys
 
 # Dictionaries
 
-morse_dict = { 'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 'g':'--.', 
+morse_dict = { 'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 'g':'--.',
               'h':'....', 'i':'..', 'j':'.---', 'k':'-.-', 'l':'.-..', 'm':'--', 'n':'-.', 
-              'o':'---', 'p':'.--.', 'q':'--.-', 'r':'.-.', 's':'...', 't':'-', 'u':'..-', 
+              'o':'---', 'p':'.--.', 'q':'--.-', 'r':'.-.', 's':'...', 't':'-', 'u':'..-',
               'v':'...-', 'w':'.--', 'x':'-..-', 'y':'-.--', 'z':'--..', 
               
               'é':'..-..', 'è':'.-..-', 'à':'.--.-', 'ç':'-.-..',
@@ -34,6 +34,11 @@ morse_dict_words = {'a':'allo', 'b':'bonaparte', 'c':'coca cola', 'd':'dos dane'
               'o':'ostrogoth', 'p':'philosophe', 'q':'quococorico', 'r':'revolver', 's':'sardine', 't':'thon', 'u':'union', 
               'v':'vegetation', 'w':'wagon post', 'x':'xtrocadero', 'y':'yoshimoto', 'z':'zorro est la'
               }
+
+morse_dict_alpha = { 'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 'g':'--.', 
+              'h':'....', 'i':'..', 'j':'.---', 'k':'-.-', 'l':'.-..', 'm':'--', 'n':'-.', 
+              'o':'---', 'p':'.--.', 'q':'--.-', 'r':'.-.', 's':'...', 't':'-', 'u':'..-', 
+              'v':'...-', 'w':'.--', 'x':'-..-', 'y':'-.--', 'z':'--..' }
 
 # Definitions
 
@@ -97,7 +102,7 @@ def tab_AW():
     print("\t\t\tTo go further...")
     print("********************************************************************\n")
     print('To learn morse code, it is easier to use associated words. "a", "e", "i" are "." and "o" is "-".')
-    print('Note: "u" is "." only for the letter U. If two vowels follow each other, we code only the second vowel.')
+    print('Note: If two vowels follow each other, we code only the second vowel, except for the word "Union" (and the "u" is "."). The letter U will be "..-"')
     print('\n\t\t-------------------------------------------------\n\t\t|\tLetter','\t\t|\tWord associated |\n\t\t-------------------------------------------------')
     
     for key, value in morse_dict_words.items():
@@ -105,7 +110,7 @@ def tab_AW():
         maxLength = max(len(value), maxLength)
         
     for key, value in morse_dict_words.items():
-        print("\t\t|\t",key.capitalize().ljust(maxLength),"\t|\t",value.capitalize().ljust(maxLength),"\t|")
+        print("\t\t|\t", key.capitalize().ljust(maxLength),"\t|\t", value.capitalize().ljust(maxLength),"\t|")
 
     print("\t\t-------------------------------------------------\n")
 
@@ -114,9 +119,20 @@ def ex():
     answer = input("Do you want to exercise? (Y/N) ").upper()
     
     if answer == 'Y':
+        print('\n\t\t---------------------------------\n\t\t|\t      Table\t\t|\n\t\t---------------------------------')
+    
+        for key, value in morse_dict_alpha.items():
+            maxLength = 0
+            maxLength = max(len(value), maxLength)
+            
+        for key, value in morse_dict_alpha.items():
+            print("\t\t|\t", key.capitalize().ljust(maxLength), "\t|\t", value.capitalize().ljust(maxLength),"\t|")        
+            
+        print("\t\t---------------------------------\n")
+    
         print('Try to encrypt "Hello"!')
         time.sleep(10)
-    
+        
         print('The answer was: .... . .-.. .-.. ---')
     
         print('\nTry to decrypt "-... -.-- ."!')
