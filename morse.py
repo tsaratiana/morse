@@ -43,12 +43,14 @@ morse_dict_alpha = { 'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'
 # Definitions
 
 def decoration():
-    print("\n**********************************************************")
-    print("\tWelcome to my morse code decrytor/encryptor!")
-    print("\t(Supports English and most latin languages)")
-    print("**********************************************************\n")
+    print("\n\t**********************************************************")
+    print("\t*\tWelcome to my morse code decrytor/encryptor!\t *")
+    print("\t**********************************************************")
+    print("\t*\t(Supports English and most latin languages\t *")
+    print("\t*### Letters, numbers and most symbols are supported ### *")
+    print("\t**********************************************************\n")
     
-    print('Note: "ï" and "œ" cannot be encrypted or decrypted.\n\n')
+    print('Note: "ï", "œ", "ê" cannot be encrypted or decrypted.\n\n')
     
 def put_message():
     print(list(morse_code.keys())[list(morse_code.values()).index('-.-.-')].capitalize(),"...\n")
@@ -67,7 +69,7 @@ def encrypt(message):
         if letter != ' ':
             output_enc += morse_dict[letter]+' '
         else:
-            output_enc += '/ ' # word separation
+            output_enc += '  ' # word separation
 
     return(output_enc)
     
@@ -138,18 +140,18 @@ def ex():
     
         print('\nTry to decrypt "-... -.-- ."!')
         time.sleep(10)
-        print('The answer was: Bye')
+        print('The answer was: Bye\n')
         
-        print("\n********************************")
-        print("\t", morse_code.get('end'),"/",list(morse_code.keys())[list(morse_code.values()).index('...-.-')].capitalize())
-        print("\tThank you!")
-        print("*********************************\n")
+        print("\n\t*********************************")
+        print("\t*\t", morse_code.get('end'),"/",list(morse_code.keys())[list(morse_code.values()).index('...-.-')].capitalize(),'\t\t*')
+        print("\t*\t   Thank you!\t\t*")
+        print("\t*********************************\n")
         
     elif answer == 'N':
-        print("\n********************************")
-        print("\t", morse_code.get('end'),"/",list(morse_code.keys())[list(morse_code.values()).index('...-.-')].capitalize())
-        print("\tThank you!")
-        print("*********************************\n")
+        print("\n\t*********************************")
+        print("\t*\t", morse_code.get('end'),"/",list(morse_code.keys())[list(morse_code.values()).index('...-.-')].capitalize(),'\t\t*')
+        print("\t*\t   Thank you!\t\t*")
+        print("\t*********************************\n")
     else:
         print('\n',morse_code.get('error'),"/",list(morse_code.keys())[list(morse_code.values()).index('........')].capitalize(),
                   ': Please type "Y" or "N" (lower or upper case)\n')
