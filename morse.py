@@ -181,7 +181,7 @@ def main():
                   ': Please type "D" or "E" (lower or upper case)')
            
             
-        repeat = input("Again? (Y/N): ").upper()
+        repeat = input("\n*Again? (Y/N): ").upper()
         
         if repeat == "N":            
             tab_AW()
